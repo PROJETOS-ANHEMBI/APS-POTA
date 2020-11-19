@@ -101,14 +101,13 @@ public class APS {
 
             RADIX_SORT(vetorPrincipal);
             vetorPrincipal = vetorAuxiliar;
-            print("- Vetor Ordenado por RADIX SORT com " + (comparacoes) + " Comparações:\n", vetorPrincipal, "\n\n\n");
+            print("- Vetor Ordenado por RADIX SORT com " + (comparacoes) + " Comparações:\n", vetorPrincipal, "\n");
             comparacoes = 0;
 
-            // pendente --------------------------------------------------------
-            // BUCKET_SORT();
-            // vetorPrincipal = vetor1;
-            // print("Vetor Ordenado por BUCKET SORT: \n", vetorPrincipal, "\n");
-            // pendente --------------------------------------------------------
+            BUCKET_SORT(vetorPrincipal, getMax(vetorPrincipal));
+            vetorPrincipal = vetorAuxiliar;
+            print("- Vetor Ordenado por BUCKET SORT: com " + (comparacoes) + " Comparações:\n", vetorPrincipal, "\n\n\n");
+            comparacoes = 0;
         }
 
     }
@@ -419,9 +418,24 @@ public class APS {
         }
     }
 
-    // Bucket Sort - Pendente
-    public static void BUCKET_SORT() {
+    // Bucket Sort
+    public static void BUCKET_SORT(int[] vet, int maxValue) {
+        int[] bucket = new int[maxValue + 1];
 
+        for (int i = 0; i < bucket.length; i++) {
+            bucket[i] = 0;
+        }
+
+        for (int i = 0; i < vet.length; i++) {
+            bucket[vet[i]]++;
+        }
+
+        int count = 0;
+        for (int i = 0; i < bucket.length; i++) {
+            for (int j = 0; j < bucket[i]; j++) {
+                vet[count++] = i;
+            }
+        }
     }
 
 }
