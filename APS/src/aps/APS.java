@@ -63,7 +63,7 @@ public class APS {
                     break;
             }
 
-            print("--- Vetor Não Ordenado: \n", vetorPrincipal, "\n");
+            print("--- Vetor Não Ordenado --- Tamanho: " + vetorPrincipal.length + " \n\nVetor: ", vetorPrincipal, "\n\n");
 
             BUBBLE_SORT(vetorPrincipal);
             print("- Vetor Ordenado por BUBBLE SORT com " + (comparacoes) + " Comparações:\n", vetorPrincipal, "\n");
@@ -141,6 +141,7 @@ public class APS {
             System.out.print(v + " ");
         }
         System.out.print(msgFinal);
+//        System.out.println("Tamanho: " + vector.length);
     }
 
     // Algoritmos de Ordenação -------------------------------------------------
