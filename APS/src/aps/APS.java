@@ -1,13 +1,16 @@
 package aps;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class APS {
 
     // Obj random, para gerar valores aleatórios nos vetores
     public static Random random;
-    
+
+    public static int[] vetorPrincipal;
+
     // Vetores 5, 10, 50, 100, 1.000 e 10.000
     public static int[] vetor1;
     public static int[] vetor2;
@@ -22,21 +25,69 @@ public class APS {
         random = new Random();
         GerarVetores();
 
-        //printVector("", vetor1, "\n");
-        //printVector("", vetor2, "\n");
-        //printVector("", vetor3, "\n");
-        //printVector("", vetor4, "\n");
-        //printVector("", vetor5, "\n");
-        //printVector("", vetor6, "\n");
-        // BUBBLE_SORT(vetor1);
-        // SELECTION_SORT(vetor1);
-        // INSERTION_SORT(vetor1);
-        // HEAP_SORT(vetor1);
-        // MERGE_SORT(vetor1, 0, vetor.length - 1);
-        // QUICK_SORT(vetor1, 0, vetor.length - 1);
-        // COUNT_SORT(vetor1);
-        // BUCKET_SORT(); --------------------------------- pendente
-        // RADIX_SORT(vetor1);
+        for (int i = 1; i <= 6; i++) {
+
+            switch (i) {
+                case 1:
+                    vetorPrincipal = vetor1;
+                    break;
+                case 2:
+                    vetorPrincipal = vetor2;
+                    break;
+                case 3:
+                    vetorPrincipal = vetor3;
+                    break;
+                case 4:
+                    vetorPrincipal = vetor4;
+                    break;
+                case 5:
+                    vetorPrincipal = vetor5;
+                    break;
+                case 6:
+                    vetorPrincipal = vetor6;
+                    break;
+            }
+
+            print("--- Vetor Não Ordenado: \n", vetorPrincipal, "\n");
+
+            vetorPrincipal = vetor1;
+            BUBBLE_SORT(vetor1);
+            print("- Vetor Ordenado por BUBBLE SORT: \n", vetorPrincipal, "\n");
+
+            SELECTION_SORT(vetor1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por SELECTION SORT: \n", vetorPrincipal, "\n");
+
+            INSERTION_SORT(vetor1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por INSERTION SORT: \n", vetorPrincipal, "\n");
+
+            HEAP_SORT(vetor1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por HEAP SORT: \n", vetorPrincipal, "\n");
+
+            MERGE_SORT(vetor1, 0, vetorPrincipal.length - 1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por MERGE SORT: \n", vetorPrincipal, "\n");
+
+            QUICK_SORT(vetor1, 0, vetorPrincipal.length - 1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por QUICK SORT: \n", vetorPrincipal, "\n");
+
+            COUNT_SORT(vetor1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por COUNT SORT: \n", vetorPrincipal, "\n");
+
+            // BUCKET_SORT(); --------------------------------- pendente
+            // vetorPrincipal = vetor1;
+            // print("Vetor Ordenado por BUCKET SORT: \n", vetorPrincipal, "\n");
+            
+            RADIX_SORT(vetor1);
+            vetorPrincipal = vetor1;
+            print("- Vetor Ordenado por RADIX SORT: \n", vetorPrincipal, "\n\n");
+
+        }
+
     }
 
     // Gera os vetores com 5, 10, 50, 100, 1.000 e 10.000 de Length
@@ -61,7 +112,7 @@ public class APS {
     }
 
     // Faz print dos elementos de um vetor
-    public static void printVector(String msgInicio, int vector[], String msgFinal) {
+    public static void print(String msgInicio, int vector[], String msgFinal) {
         System.out.print(msgInicio);
         for (int v : vector) {
             System.out.print(v + " ");
