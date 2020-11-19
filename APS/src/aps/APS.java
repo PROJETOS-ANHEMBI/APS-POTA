@@ -5,41 +5,62 @@ import java.util.Random;
 
 public class APS {
 
-    public static int[] vetor;
+    // Obj random, para gerar valores aleatórios nos vetores
     public static Random random;
+    
+    // Vetores 5, 10, 50, 100, 1.000 e 10.000
+    public static int[] vetor1;
+    public static int[] vetor2;
+    public static int[] vetor3;
+    public static int[] vetor4;
+    public static int[] vetor5;
+    public static int[] vetor6;
 
     public static void main(String[] args) {
 
-        // Instancia o obj random, e cria o vetor
+        // Instancia o obj random, e cria os vetores
         random = new Random();
-        GerarVetor(10);
+        GerarVetores();
 
-        printVector("\n", vetor, "\n");
-
-        // BUBBLE_SORT(vetor);
-        // SELECTION_SORT(vetor);
-        // INSERTION_SORT(vetor);
-        // HEAP_SORT(vetor);
-        // MERGE_SORT(vetor, 0, vetor.length - 1);
-        // QUICK_SORT(vetor, 0, vetor.length - 1);
-        // COUNT_SORT(vetor);
+        //printVector("", vetor1, "\n");
+        //printVector("", vetor2, "\n");
+        //printVector("", vetor3, "\n");
+        //printVector("", vetor4, "\n");
+        //printVector("", vetor5, "\n");
+        //printVector("", vetor6, "\n");
+        // BUBBLE_SORT(vetor1);
+        // SELECTION_SORT(vetor1);
+        // INSERTION_SORT(vetor1);
+        // HEAP_SORT(vetor1);
+        // MERGE_SORT(vetor1, 0, vetor.length - 1);
+        // QUICK_SORT(vetor1, 0, vetor.length - 1);
+        // COUNT_SORT(vetor1);
         // BUCKET_SORT(); --------------------------------- pendente
-        // RADIX_SORT(vetor);
-
-        printVector("\n", vetor, "\n");
-
+        // RADIX_SORT(vetor1);
     }
 
-    // Gera novos vetores com Length dinamico, passado por parametro
-    public static void GerarVetor(int maxLength) {
+    // Gera os vetores com 5, 10, 50, 100, 1.000 e 10.000 de Length
+    public static void GerarVetores() {
+        vetor1 = GerarVetor(5);
+        vetor2 = GerarVetor(10);
+        vetor3 = GerarVetor(50);
+        vetor4 = GerarVetor(100);
+        vetor5 = GerarVetor(1000);
+        vetor6 = GerarVetor(10000);
+    }
+
+    // Gera um novo vetor com um Length passado por parametro
+    public static int[] GerarVetor(int maxLength) {
         // Instancia o vetor com o Length recebido
-        vetor = new int[maxLength];
+        int[] vetor = new int[maxLength];
         // Adiciona valores aleatórios ao vetor
         for (int i = 0; i < maxLength; i++) {
             vetor[i] = random.nextInt(1001);
         }
+        return vetor;
     }
 
+    // Faz print dos elementos de um vetor
     public static void printVector(String msgInicio, int vector[], String msgFinal) {
         System.out.print(msgInicio);
         for (int v : vector) {
